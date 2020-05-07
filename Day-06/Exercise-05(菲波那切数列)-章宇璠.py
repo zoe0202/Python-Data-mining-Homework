@@ -1,15 +1,19 @@
 if __name__ == "__main__":
-    def fib(n):
-        n1=1
-        n2=1
-        n3=1
-        if n<1:
-            print('input error')
-            return -1
-        while (n-2)>0:
-            n3=n2+n1
-            n1=n2
-            n2=n3
-            n -= 1
-        return n3
+    s = set()
+    def g(x):
+        if x == 1:
+            s.add(1)
+            return 1
+        elif x == 2:
+            s.add(1)
+            s.add(2)
+            return 2
+        ret = g(x - 1) + g(x - 2)
+        s.add(ret)
+        return ret
+    num = int(input('请输入想要打印的斐波那契数列的个数：'))
+    ret = g(num)
+    L = list(s)
+    L.sort()
+    print(L)
 
