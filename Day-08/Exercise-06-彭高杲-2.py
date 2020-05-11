@@ -7,7 +7,7 @@ print(numbers[1])
 
 #2. 使用正则表达式判断字符串是否为邮箱地址
 tail = input('Please write your letters: ')
-if re.search('@',tail):
+if re.search(r'[a-zA-Z0-9]@[a-zA-Z0-9].[a-zA-Z0-9]',tail):
     print("It's an email")
 else:
     print("I suppose it's not.")
@@ -15,5 +15,7 @@ else:
 #3. 使用正则表达式提取网页源代码中的所有Url
 url_first = input('Please copy your source code there: ')
 url_second = re.search(r'http://(.*)/',url_first,re.M|re.I|re.S)
-out = url_second.group()
-print(out)
+if url second:
+    print(url_second.group())
+else:
+    print("It doesn't have an url.")
