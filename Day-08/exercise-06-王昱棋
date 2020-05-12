@@ -1,0 +1,47 @@
+#检验邮箱
+import re
+
+while True:
+    e = input('请输入一个邮箱：')
+    if re.findall(r'^\w+@(\w+.)+(com|cn|net)$',e):
+        print("邮箱格式正确")
+
+    else:
+        print('邮箱格式不正确，请重新输入')
+
+#查找电话号码
+
+import re
+a='</title><link rel="shortcut icon" href="/_layouts/15/Canway.Portal.External.Web/images/favicon.png" type="image/vnd.microsoft.icon" id="favicon"><link rel="stylesheet" type="text/css" href="/_layouts/15/2052/styles/Themable/corev15.css?rev=OjbVZfNOSp9SHxHy9FUrXw%3D%3D"><link rel="shortcut icon" href="/gday!!!!!!!!!!!!!!!!!!!!!!/_layouts/15/Canway.Portal.External.Web/images/.png" type="image/vnd.microsoft.icon" id="favicon">'
+pattern = re.compile('</title><link rel="shortcut icon" href=(.*?)type.*?href=(.*?)><link rel=.*? href=(.*?) type=.*?',re.I)
+items = re.findall(pattern,a)
+pageStories = []
+for item in items:
+    pageStories.append([item[0].strip(),item[1].strip(),item[2].strip()])
+print(pageStories)
+
+
+#获取URL
+
+import re
+a='</title><link rel="shortcut icon" href="/_layouts/15/Canway.Portal.External.Web/images/favicon.png" type="image/vnd.microsoft.icon" id="favicon"><link rel="stylesheet" type="text/css" href="/_layouts/15/2052/styles/Themable/corev15.css?rev=OjbVZfNOSp9SHxHy9FUrXw%3D%3D"><link rel="shortcut icon" href="/gday!!!!!!!!!!!!!!!!!!!!!!/_layouts/15/Canway.Portal.External.Web/images/.png" type="image/vnd.microsoft.icon" id="favicon">'
+pattern = re.compile('</title><link rel="shortcut icon" href=(.*?)type.*?href=(.*?)><link rel=.*? href=(.*?) type=.*?',re.I)
+items = re.findall(pattern,a)
+pageStories = []
+for item in items:
+    pageStories.append([item[0].strip(),item[1].strip(),item[2].strip()])
+print(pageStories)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
