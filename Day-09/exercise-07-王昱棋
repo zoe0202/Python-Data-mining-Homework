@@ -1,0 +1,10 @@
+import json
+f = open("F:/data/聆听丶芒果鱼直播间时间切片弹幕.json",'r',encoding='utf-8')
+dic = json.load(f)
+list = dic['data']
+
+import pandas as pd
+df = pd.DataFrame(list, columns=['A', 'B', 'C','D']) 
+df1 = df.loc[df['A']== 'NM']
+df3 = df1.drop(['A','B','C'],axis=1)
+df3.to_csv('F:/data/result.txt', header=0, index=0)
