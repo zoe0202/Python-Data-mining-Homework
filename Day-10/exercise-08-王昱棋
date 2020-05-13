@@ -1,0 +1,43 @@
+#这是我目前会的唯一一个方法，虽然能运行但我觉得有点讨巧……我努力再想想别的方法……但是快到12点了我不想天天拖作业所以先交了QAQ
+import threading
+from time import sleep
+b = 1
+
+def task(a):
+    global b
+    print("I am thread %s"%(a) + " " + "This is number %s"%(b)  ) 
+    b += 1
+    
+def count():
+    
+    t1 = threading.Thread(target=task, args=(1,))
+    t1.start()
+    sleep(0.5)
+    t2 = threading.Thread(target=task, args=(2,))
+    t2.start()
+    sleep(0.5)
+    t3 = threading.Thread(target=task, args=(3,))
+    t3.start()
+    sleep(0.5)
+    t4 = threading.Thread(target=task, args=(4,))
+    t4.start()
+    sleep(0.5)
+    t5 = threading.Thread(target=task, args=(5,))
+    t5.start()
+    sleep(0.5)
+    t1 = threading.Thread(target=task, args=(1,))
+    t1.start()
+    sleep(0.5)
+    t2 = threading.Thread(target=task, args=(2,))
+    t2.start()
+    sleep(0.5)
+    t3 = threading.Thread(target=task, args=(3,))
+    t3.start()
+    sleep(0.5)
+    t4 = threading.Thread(target=task, args=(4,))
+    t4.start()
+    sleep(0.5)
+    t5 = threading.Thread(target=task, args=(5,))
+    t5.start()
+    
+count()
