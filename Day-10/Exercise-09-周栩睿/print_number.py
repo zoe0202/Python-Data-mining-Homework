@@ -1,11 +1,9 @@
 from threading import Thread
 from time import sleep
 def print_number():
-    count=0
     for i in range(1,11):
         print(i)
         sleep(0.5)
-        count+=1
 def main():
     start = print_number()
     t1 = Thread(target=print_number())
