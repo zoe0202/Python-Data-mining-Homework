@@ -1,0 +1,10 @@
+
+import json
+f=open("/Users/zoe/Desktop/芒果鱼直播间弹幕.json",'r',encoding='utf-8')
+dic=json.load(f)
+list=dic['data']
+import pandas as pd
+df=pd.DataFrame(list,columns=['类别','发布时间','发布者','弹幕内容'])
+df.to_csv('/Users/zoe/Desktop/0513.xlsx',encoding="utf_8_sig")
+print("保存成功")
+
