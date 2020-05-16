@@ -12,7 +12,7 @@
 '''
 import json
 import string
-from markupsafe import  unichr
+from markupsafe import unichr
 
 
 def str_combine(strs):  # 合并标点、中文、英文，统一大小写，剔除换行符与制表符
@@ -21,40 +21,26 @@ def str_combine(strs):  # 合并标点、中文、英文，统一大小写，剔
     strs = strs.replace('\t', '')  # 剔除制表符
     strs = strs.replace('\n', '').replace('\r', '')  # 剔除换行符
     while n < len(strs):  # 条件语句，开始遍历
-        print(strs[n])
         if strs[n] in string.punctuation:  # 判断是否为标点
             if strs[n] == strs[n - 1]:  # 判断是否连续出现2次以上
                 n += 1
             else:
-                combine_str= combine_str + strs[n]
+                combine_str.append(strs[n])
                 n += 1
         elif '\u4e00' <= strs[n] <= '\u9fa5':  # 判断是否为中文
-            if n < 3:
-                combine_str = combine_str + strs[n]
+            if strs[n] == strs[n - 1] == strs[n - 2] == strs[n - 3]:  # 判断是否连续出现3次以上
                 n += 1
             else:
-                if strs[n] == strs[n - 1] == strs[n - 2] == strs[n - 3]:  # 判断是否连续出现3次以上
-                    n += 1
-                else:
-                    combine_str = combine_str + strs[n]
-                    n += 1
-
+                combine_str.append(strs[n])
+                n += 1
         elif (strs[n] >= u'\u0041' and strs[n] <= u'\u005a') or (
                 strs[n] >= u'\u0061' and strs[n] <= u'\u007a'):  # 判断是否为英文
-            k = strs[n]
-            strs = strs[:n]+k.lower()+strs[(n+1):]  #大写改小写
-            if n < 3:
-                combine_str = combine_str + strs[n]
+            strs[n] = strs[n].lower()
+            if strs[n] == strs[n - 1] == strs[n - 2] == strs[n - 3]:  # 判断是否连续出现3次以上
                 n += 1
             else:
-                if strs[n] == strs[n - 1] == strs[n - 2] == strs[n - 3]:  # 判断是否连续出现3次以上
-                    n += 1
-                else:
-                    combine_str = combine_str + strs[n]
-                    n += 1
-
-        else:
-            n += 1
+                combine_str.append(strs[n])
+                n += 1
 
     return combine_str
 
@@ -78,10 +64,12 @@ if __name__ == '__main__':
         data = f.read()
         text = json.loads(data)  # 读取json文件
         result = []  # 新建序列用于储存
+        a = 'bhb2131bhbjHHHHHbbbb.......中中啊啊啊啊啊'
+        print(a.str_combine)
     for i in text['data']:  # 循环结构 遍历每一组数据
         if i[0] == 'NM':  # 条件语句 判断第一列是否为目标
-            i[3] = str_combine(i[3])
-            i[3] = strQ2B(i[3])
+            i[3] = i[3].str_combine
+            i[3] = i[3].strQ2B
             result.append(i[3])  # 添加入序列
             result.append('\n')  # 换行
     with open(r'E:\作业\Python-Data-mining-Homework-master\Day-09\输出.txt', 'w', encoding='utf-8',
