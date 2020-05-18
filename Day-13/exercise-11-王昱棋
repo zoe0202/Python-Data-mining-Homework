@@ -1,0 +1,15 @@
+from math import pi
+class Circle(object):
+    def __init__(self,r,):
+        self.r=r
+    def data(self):
+        r=int(input("请输入圆的半径："))
+        area=pi*r*r
+        circumference=2*pi*r
+        print("该圆的面积为：",area,"该圆的周长为：",circumference)
+def main():
+    str1= Circle(3)
+    str1.data()
+
+if __name__ == '__main__':
+        main()
