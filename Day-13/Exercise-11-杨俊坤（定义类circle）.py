@@ -9,7 +9,11 @@ class Circle:                         #定义类Circle
         self.perimeter=round(self.radius*2*math.pi,2)
         print('圆的周长是：',self.perimeter)
 
-result=Circle(10)                        #括号内是半径 可自定义实例化对象/？
-result.get_area()                   #使用方法
-result.get_perimeter()             #使用方法
+def main():
+    radius=float(input('请输入圆的半径：'))
+    result=Circle(radius)                        #括号内是半径 可自定义实例化对象/？
+    result.get_area()                   #使用方法
+    result.get_perimeter()             #使用方法
 
+if __name__ == '__main__':
+    main()
