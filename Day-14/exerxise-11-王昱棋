@@ -1,0 +1,25 @@
+class Media(object):
+    
+    count = 0 #
+    
+    def __init__(self, web_name,website):
+        self.web_name = web_name
+        self.website = website
+        Media.count += 1
+        
+    def name(self):
+        return self.web_name
+    
+    def get_website(self):
+        return self.website
+        
+    def __str__(self):
+        return self.web_name
+   
+
+
+media1 = Media("rabbit","www")
+print(media1.name())
+print(media1.get_website())
+print(Media.count)
+print(media1)
