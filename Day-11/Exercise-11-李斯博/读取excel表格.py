@@ -18,7 +18,7 @@ def write():
         sheet.write(int(line), 0, line) #　将line写入到第int(line)行，第0列中
         for i in range(len(a[line])):
             sheet.write(int(line), i + 1, a[line][i])
-    book.save('聆听丶芒果鱼直播间时间切片弹幕.xls')
+    excel.save('聆听丶芒果鱼直播间时间切片弹幕.xls')
 
 if __name__ == '__main__':
     write(r'D:\360MoveData\Users\23612\Desktop\聆听丶芒果鱼直播间时间切片弹幕.json')
