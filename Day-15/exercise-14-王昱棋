@@ -1,0 +1,21 @@
+drop schema if exists air cascade;
+create schema air;
+
+drop table if exists air.flight;
+create table air.flight (
+	flight_id serial,
+	flight_number character varying (15) not null,
+	travel_date date not null,
+	departure_airport character varying (50) not null,
+	destination_airport character varying (50) not null,
+	seat INT not null
+	);
+	
+insert into air.flight (flight_number, travel_date, departure_airport, destination_airport,seat)
+values 
+('SO1000','01-Dec-2018','EDI','LHR',300),
+('WE2000','02-Dec-2018','LCY','BFS',350),
+('NO3000','03-Dec-2018','GLA','LGW',400)
+;
+
+select * from air.flight where travel_date >= '01-Dec-2018' order by seat
