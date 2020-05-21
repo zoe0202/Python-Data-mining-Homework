@@ -1,0 +1,4 @@
+SELECT *
+FROM 职位简介
+WHERE 职务="导演"
+ORDER BY ID;
