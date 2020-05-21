@@ -1,0 +1,5 @@
+SELECT item_code,item_name,item_date,item_price
+FROM item 
+INNER JOIN price
+ON item.item_name=price.price_name
+ORDER BY item_price;
